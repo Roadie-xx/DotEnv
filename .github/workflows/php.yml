@@ -43,7 +43,7 @@ jobs:
       run: php-cs-fixer check -v ./src
 
     - name: Run PHPStan
-      run: phpstan analyze --level=1 ./src
+      run: phpstan analyze --level=9 ./src
 
     - name: Run Unit Tests
       run: simple-phpunit --bootstrap=vendor/autoload.php ./tests
