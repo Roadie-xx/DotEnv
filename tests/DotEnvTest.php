@@ -3,7 +3,6 @@
 namespace RoadieXX {
     function is_readable($filename) {
         if (\strpos($filename, 'unreadable') !== false) {
-            echo 'Hoi';
             return false;
         }
 
