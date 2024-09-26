@@ -2,8 +2,8 @@
 
 namespace RoadieXX;
 
-use \InvalidArgumentException;
-use \RuntimeException;
+use InvalidArgumentException;
+use RuntimeException;
 
 class DotEnv
 {
