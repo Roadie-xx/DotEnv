@@ -32,6 +32,10 @@ class DotEnv
 
         $lines = file($this->path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
+        if ($lines === false) {
+            throw new RuntimeException(sprintf('Could not parse file "%s"', $this->path));
+        }
+
         foreach ($lines as $line) {
             if (strpos(trim($line), '#') === 0) {
                 continue;

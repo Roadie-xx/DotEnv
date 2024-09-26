@@ -8,6 +8,14 @@ namespace RoadieXX {
 
         return \is_readable($filename);
     }
+
+    function file($filename) {
+        if (\strpos($filename, 'empty') !== false) {
+            return false;
+        }
+
+        return \file($filename);
+    }
 }
 
 namespace Test\RoadieXX { 
@@ -89,6 +97,11 @@ namespace Test\RoadieXX {
         public function testFileNotReadable() {
             $this->expectException(RuntimeException::class);
             (new DotEnv($this->loadEnv('.env.unreadable')))->load();
+        }
+
+        public function testEmptyFile() {
+            $this->expectException(RuntimeException::class);
+            (new DotEnv($this->loadEnv('.env.empty')))->load();
         }
     }
 }
