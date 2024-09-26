@@ -53,7 +53,7 @@ docker run -ti -v ${pwd}:/var/www/composer ghcr.io/devgine/composer-php:v2-php7.
     # PHPStan
     phpstan analyze --level=1 ./src
 
-    #PHP Unit
+    # PHP Unit
     simple-phpunit --bootstrap=vendor/autoload.php ./tests
     simple-phpunit --coverage-text --whitelist=./src  --bootstrap=vendor/autoload.php ./tests
 ```
