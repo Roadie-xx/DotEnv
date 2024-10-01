@@ -38,7 +38,7 @@ namespace Test\RoadieXX {
         /**
          * @runInSeparateProcess
          */
-        public function testLoad() {
+        public function testLoad(): void {
 
             (new DotEnv($this->loadEnv('.env.default')))->load();
 
@@ -89,17 +89,17 @@ namespace Test\RoadieXX {
             $this->assertEquals('""', $_SERVER['EMPTY_QUOTED']);
         }
 
-        public function testFileNotExist() {
+        public function testFileNotExist(): void {
             $this->expectException(InvalidArgumentException::class);
             (new DotEnv($this->loadEnv('.env.not-exists')))->load();
         }
 
-        public function testFileNotReadable() {
+        public function testFileNotReadable(): void {
             $this->expectException(RuntimeException::class);
             (new DotEnv($this->loadEnv('.env.unreadable')))->load();
         }
 
-        public function testEmptyFile() {
+        public function testEmptyFile(): void {
             $this->expectException(RuntimeException::class);
             (new DotEnv($this->loadEnv('.env.empty')))->load();
         }

@@ -30,7 +30,7 @@ class DotEnv
             throw new RuntimeException(sprintf('File "%s" is not readable', $this->path));
         }
 
-        $lines = file($this->path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        $lines = file($this->path);
 
         if ($lines === false) {
             throw new RuntimeException(sprintf('Could not parse file "%s"', $this->path));
@@ -41,7 +41,7 @@ class DotEnv
                 continue;
             }
 
-            list($name, $value) = explode('=', $line, 2);
+            [$name, $value] = explode('=', $line, 2);
 
             $name = trim($name);
             $value = trim($value);
