@@ -21,7 +21,7 @@ use RoadieXX\DotEnv;
 
 echo getenv('APP_ENV');
 // dev
-echo getenv('DATABASE_DNS')
+echo getenv('DATABASE_DNS');
 // mysql:host=localhost;dbname=test;
 ```
 
@@ -40,6 +40,9 @@ docker run -ti -v LOCAL_PROJECT_DIR:/var/www/composer ghcr.io/devgine/composer-p
 # For  example
 docker run -ti -v ${pwd}:/var/www/composer ghcr.io/devgine/composer-php:v2-php7.4-alpine sh
 
+# Updrade global packages in docker
+    composer global upgrade
+
 # Install packages
     composer install
 
@@ -51,7 +54,7 @@ docker run -ti -v ${pwd}:/var/www/composer ghcr.io/devgine/composer-php:v2-php7.
     php-cs-fixer check -v ./src
 
     # PHPStan
-    phpstan analyze --level=1 ./src
+    phpstan analyze --level=9 ./src
 
     # PHP Unit
     simple-phpunit --bootstrap=vendor/autoload.php ./tests
